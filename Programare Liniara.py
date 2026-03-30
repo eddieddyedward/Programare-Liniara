@@ -120,13 +120,14 @@ def TabelSimplex(n, m, A, b, c):
     T = []
     A = np.array(A)
     m, n = A.shape
-    B = []
+    B = [0] * m
     cB = []
 
     for j in range(n):
         col = A[:, j]
         if np.count_nonzero(col) == 1 and np.sum(col) == 1:
-            B.append(j + 1)
+            linie = np.where(col == 1)[0][0]
+            B[linie] = j + 1
 
     for i in range(m):
         for j in range(n):
