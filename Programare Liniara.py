@@ -42,8 +42,8 @@ def UrmatoareaIteratie(iteratie, opt, delta, m, n, T, c):
 
     P = T[linpiv][colpiv]
 
-    print(f"Vectorul coloana care iese din baza este a{colpiv - 2}")
-    print(f"Vectorul coloana care intra in baza este a{T[linpiv][1]}")
+    print(f"Vectorul coloana care iese din baza este a{T[linpiv][1]}")
+    print(f"Vectorul coloana care intra in baza este a{colpiv - 2}")
     print(f"Pivotul este elementul {P} de pe coloana {colpiv} si randul {linpiv}")
 
     T_UrmatoareaIteratie[linpiv][0] = c[colpiv - 3]
