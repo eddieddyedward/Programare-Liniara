@@ -1,6 +1,7 @@
 import numpy as np
 from copy import deepcopy
 import math
+np.set_printoptions(suppress=True, precision=6)
 
 n_princ = 0
 
@@ -9,7 +10,7 @@ def ValidareSolutie(Ziteratii, sol):
     suma = 0
     for j in range(n_princ):
         suma = suma + sol[j]*c_initial[j]
-    if suma == Ziteratii:
+    if abs(suma - Ziteratii) < 1e-6:
         print("Solutia se valideaza")
     else:
         print("Solutia NU se valideaza")
@@ -70,6 +71,7 @@ def PrintareSolutie(T, m, B):
         for j in range(n_princ):
             if T[i][1] == j + 1:
                 sol[j] = T[i][2]
+    sol = [round(x, 6) for x in sol]
     print(f"x0: {np.array(sol)}")
     return sol
 
@@ -109,8 +111,8 @@ def CalculDelta(T, n, m, c):
     for j in range(n):
         delta.append(c[j] - z[j])
 
-    z = list(map(int, z))
-    delta = list(map(int, delta))
+    z = [round(x, 6) for x in z]
+    delta = [round(x, 6) for x in delta]
 
     return Ziteratii, delta
 
